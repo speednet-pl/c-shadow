@@ -9,14 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.DefaultShadowColor
 import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.asComposePath
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.imageResource
@@ -25,25 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.romainguy.graphics.path.toPath
-
-fun Modifier.shadow(
-    offsetX: Dp = 0.dp,
-    offsetY: Dp = 0.dp,
-    blurRadius: Dp = DefaultBlurRadius,
-    color: Color = DefaultShadowColor,
-    path: Path,
-) = drawWithCache {
-    onDrawBehind {
-        drawIntoCanvas {
-            val paint = createPaint(blurRadius.toPx(), color)
-
-            it.save()
-            it.translate(offsetX.toPx(), offsetY.toPx())
-            it.drawPath(path, paint)
-            it.restore()
-        }
-    }
-}
 
 fun Modifier.shadow(
     offsetX: Dp = 0.dp,
