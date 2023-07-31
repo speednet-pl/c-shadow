@@ -1,3 +1,14 @@
 # Default ignored files
+/artifacts
 /shelf/
+/caches
+/appInsightsSettings.xml
+/compiler.xml
+/inspectionProfiles
+/libraries
+/misc.xml
+/modules.xml
 /workspace.xml
+/navEditor.xml
+/assetWizardSettings.xml
+/deploymentTargetDropDown.xml

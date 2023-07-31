@@ -1,18 +1,20 @@
-import com.vanniktech.maven.publish.SonatypeHost
-
 plugins {
     kotlin("multiplatform")
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
-    alias(libs.plugins.maven.publish)
+    id("module.publication")
 }
 
 kotlin {
-    jvmToolchain(17)
     jvm()
 
     android {
         publishLibraryVariants("release")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
     }
 
     iosX64()
@@ -69,32 +71,9 @@ android {
     buildFeatures {
         buildConfig = false
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
-    }
-}
-
-mavenPublishing {
-    publishToMavenCentral(SonatypeHost.S01)
-    signAllPublications()
-    pomFromGradleProperties()
-}
-
-publishing {
-    repositories {
-        val version = property("VERSION_NAME") as String
-        maven(
-            url = if (version.endsWith("SNAPSHOT")) {
-                "$buildDir/repos/snapshots"
-            } else {
-                "$buildDir/repos/releases"
-            }
-        )
     }
 }
