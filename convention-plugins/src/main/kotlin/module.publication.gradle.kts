@@ -13,6 +13,7 @@ version = "0.1.3"
 publishing {
     // Configure all publications
     publications.withType<MavenPublication> {
+        artifactId = "c-shadow"
         // Stub javadoc.jar artifact
         artifact(tasks.register("${name}JavadocJar", Jar::class) {
             archiveClassifier.set("javadoc")
