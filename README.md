@@ -3,7 +3,7 @@
 [![](https://img.shields.io/maven-central/v/pl.speednet.c-shadow/c-shadow)](https://mvnrepository.com/artifact/pl.speednet.c-shadow/c-shadow)
 [![](https://img.shields.io/github/license/speednet-pl/c-shadow)](https://github.com/speednet-pl/c-shadow/blob/main/LICENSE)
 
-[](https://github.com/speednet-pl/c-shadow/blob/main/sample/peak.png)
+![](https://github.com/speednet-pl/c-shadow/blob/main/sample/peak.png)
 
 ## What is c-shadow?
 
