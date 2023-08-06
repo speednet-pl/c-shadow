@@ -34,7 +34,7 @@ fun Modifier.shadow(
         bitmap.toPath().asComposePath()
     }
 
-    shadow(
+    this.shadow(
         offsetY = offsetY,
         offsetX = offsetX,
         blurRadius = blurRadius,

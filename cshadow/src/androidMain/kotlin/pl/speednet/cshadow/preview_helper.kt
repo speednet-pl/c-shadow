@@ -36,9 +36,9 @@ internal fun PreviewSliders(
     var blurRadius by remember { mutableStateOf(initialBlurRadius.value) }
 
     content(
-        offsetX = offsetX.dp,
-        offsetY = offsetY.dp,
-        blurRadius = blurRadius.dp,
+        offsetX.dp,
+        offsetY.dp,
+        blurRadius.dp,
     )
 
     Spacer(modifier = Modifier.requiredSize(32.dp))
